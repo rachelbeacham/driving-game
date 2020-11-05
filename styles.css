@@ -10,4 +10,17 @@ body {
 .car {
   width: 12%;
   height: 12%;
+  margin-top: 2rem;
+}
+
+.north {
+  transform: rotate(-90deg);
+}
+
+.west {
+  transform: rotate(180deg);
+}
+
+.south {
+  transform: rotate(90deg);
 }
