@@ -1,7 +1,11 @@
 var $car = document.querySelector('.car')
 
 var data = {
-  direction: 'east'
+  direction: 'east',
+  location: {
+    x: '20px',
+    y: '20px'
+  }
 }
 
 document.addEventListener('keydown', turnCar)
