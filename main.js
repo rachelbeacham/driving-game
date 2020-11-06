@@ -7,6 +7,7 @@ var data = {
     x: 20,
     y: 20
   }
+  moving: false
 }
 
 document.addEventListener('keydown', turnCar)
