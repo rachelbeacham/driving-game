@@ -1,6 +1,5 @@
 var $car = document.querySelector('.car');
 var go = null;
-var numberOfSpacePresses = 0;
 
 var data = {
   direction: 'east',
@@ -12,13 +11,13 @@ var data = {
 };
 
 document.addEventListener('keydown', turnCar);
+
 document.addEventListener('keydown', function (e) {
   if (e.code === 'Space') {
-    numberOfSpacePresses += 1;
-    if (numberOfSpacePresses % 2 === 1) {
+    if (data.moving === false) {
       go = setInterval(startCar, 16);
     }
-    if (numberOfSpacePresses % 2 === 0) {
+    if (data.moving === true) {
       clearInterval(go);
       data.moving = false;
     }
