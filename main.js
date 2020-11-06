@@ -15,7 +15,7 @@ document.addEventListener('keydown', turnCar);
 document.addEventListener('keydown', function (e) {
   if (e.code === 'Space') {
     if (data.moving === false) {
-      go = setInterval(startCar, 16);
+      go = setInterval(drive, 16);
     }
     if (data.moving === true) {
       clearInterval(go);
@@ -41,8 +41,22 @@ function turnCar(e) {
   }
 }
 
-function startCar() {
-  data.location.x = data.location.x + 5;
-  $car.style.left = data.location.x + 'px';
+function drive() {
+  if (data.direction === 'east') {
+    data.location.x = data.location.x + 5;
+    $car.style.left = data.location.x + 'px';
+  }
+  if (data.direction === 'south') {
+    data.location.y = data.location.y + 5;
+    $car.style.top = data.location.y + 'px';
+  }
+  if (data.direction === 'west') {
+    data.location.x = data.location.x - 5;
+    $car.style.left = data.location.x + 'px';
+  }
+  if (data.direction === 'north') {
+    data.location.y = data.location.y - 5;
+    $car.style.top = data.location.y + 'px';
+  }
   data.moving = true;
 }
