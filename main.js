@@ -8,7 +8,14 @@ var data = {
   }
 }
 
+var go = setInterval(startCar, 16)
+
 document.addEventListener('keydown', turnCar)
+document.addEventListener('keydown', function (e) {
+  if (e.code === 'Space') {
+    startCar();
+  }
+});
 
 function turnCar(e) {
   var keyPressed = e.key;
@@ -24,7 +31,8 @@ function turnCar(e) {
   } else if (keyPressed === 'ArrowDown') {
     $car.className = 'car south';
     data.direction = 'south';
-  } else {
-    return;
   }
+ }
+
+ function startCar() {
  }
