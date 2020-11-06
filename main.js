@@ -1,19 +1,18 @@
 var $car = document.querySelector('.car')
+var go = null;
 
 var data = {
   direction: 'east',
   location: {
-    x: '20px',
-    y: '20px'
+    x: 20,
+    y: 20
   }
 }
-
-
 
 document.addEventListener('keydown', turnCar)
 document.addEventListener('keydown', function (e) {
   if (e.code === 'Space') {
-    startCar();
+    go = setInterval(startCar, 16)
   }
 });
 
@@ -32,4 +31,9 @@ function turnCar(e) {
     $car.className = 'car south';
     data.direction = 'south';
   }
+ }
+
+ function startCar() {
+   data.location.x = data.location.x + 5;
+   $car.style.left = data.location.x +'px';
  }
