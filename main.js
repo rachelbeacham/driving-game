@@ -1,10 +1,20 @@
 var $car = document.querySelector('.car')
+var go = null;
 
 var data = {
-  direction: 'east'
+  direction: 'east',
+  location: {
+    x: 20,
+    y: 20
+  }
 }
 
 document.addEventListener('keydown', turnCar)
+document.addEventListener('keydown', function (e) {
+  if (e.code === 'Space') {
+    go = setInterval(startCar, 16)
+  }
+});
 
 function turnCar(e) {
   var keyPressed = e.key;
@@ -20,7 +30,10 @@ function turnCar(e) {
   } else if (keyPressed === 'ArrowDown') {
     $car.className = 'car south';
     data.direction = 'south';
-  } else {
-    return;
   }
+ }
+
+ function startCar() {
+   data.location.x = data.location.x + 5;
+   $car.style.left = data.location.x +'px';
  }
