@@ -8,7 +8,7 @@ var data = {
   }
 }
 
-var go = setInterval(startCar, 16)
+
 
 document.addEventListener('keydown', turnCar)
 document.addEventListener('keydown', function (e) {
@@ -32,7 +32,4 @@ function turnCar(e) {
     $car.className = 'car south';
     data.direction = 'south';
   }
- }
-
- function startCar() {
  }
